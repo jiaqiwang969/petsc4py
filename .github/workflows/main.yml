@@ -22,7 +22,7 @@ jobs:
         id: docker_meta
         uses: crazy-max/ghaction-docker-meta@v1
         with:
-          images: denizgokcin/petsc4py
+          images: jiaqiknight/petsc4py
           tag-sha: true
       -
         name: Set up QEMU
@@ -50,13 +50,13 @@ jobs:
           tags: |
             ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
-          cache-to: denizgokcin/petsc4py:cache
-          cache-from: denizgokcin/petsc4py:cache
+          cache-to: jiaqiknight/petsc4py:cache
+          cache-from: jiaqiknight/petsc4py:cache
       -
         name: Sync DockerHub Readme
         uses: meeDamian/sync-readme@v1.0.6
         with:
           user: ${{ secrets.DOCKERHUB_USERNAME }}
           pass: ${{ secrets.DOCKERHUB_PASS }}
-          slug: denizgokcin/petsc4py
+          slug: jiaqiknight/petsc4py
 
